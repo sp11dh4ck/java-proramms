@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Java_calculator {
+    public static void main(String[] args)
+    {
+        int period = 1;
+        while (period > 0) {
+            Scanner input = new Scanner(System.in);
+
+            int num1, num2;
+            char operation;
+
+            System.out.printf("Enter operation (+, -, *, / or y for close program): ");
+            operation = input.next().charAt(0);
+
+            if (operation != '+' | operation != '-' | operation != '*' | operation != '/' | operation != 'y') {
+                while (true) {
+                    System.out.printf("Please, enter correct operation (+, -, *, / or y for close program): ");
+                    operation = input.next().charAt(0);
+                    if (operation == '+' | operation == '-' | operation == '*' | operation == '/' | operation == 'y') {
+                        break;
+                    }
+                }
+            }
+
+            if (operation == 'y') {
+                period--;
+            } else {
+                System.out.printf("Enter 1st number: ");
+                while (!input.hasNextInt()) {
+                    System.out.printf("Please enter valid 1st number: ");
+                    input.next();
+                }
+                num1 = input.nextInt();
+
+                System.out.printf("Enter 2nd number: ");
+                while (!input.hasNextInt()) {
+                    System.out.printf("Please enter valid 2nd number: ");
+                    input.next();
+                }
+                num2 = input.nextInt();
+
+                switch (operation) {
+                    case '+':
+                        System.out.println(num1 + num2);
+                        break;
+                    case '-':
+                        System.out.println(num1 - num2);
+                        break;
+                    case '*':
+                        System.out.println(num1 * num2);
+                        break;
+                    case '/':
+                        System.out.println(num1 / num2);
+                        break;
+                    case 'y':
+                        System.out.println("Program closed");
+                    default:
+                        System.out.println("Error! Uncorrect operation");
+                }
+            }
+        }
+    }
+}
