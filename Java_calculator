@@ -7,19 +7,14 @@ public class Java_calculator {
         while (period > 0) {
             Scanner input = new Scanner(System.in);
 
-            int num1, num2;
+            float num1, num2;
             char operation;
 
-            System.out.printf("Enter operation (+, -, *, / or y for close program): ");
-            operation = input.next().charAt(0);
-
-            if (operation != '+' | operation != '-' | operation != '*' | operation != '/' | operation != 'y') {
-                while (true) {
-                    System.out.printf("Please, enter correct operation (+, -, *, / or y for close program): ");
-                    operation = input.next().charAt(0);
-                    if (operation == '+' | operation == '-' | operation == '*' | operation == '/' | operation == 'y') {
-                        break;
-                    }
+            while (true) {
+                System.out.printf("Enter correct operation (+, -, *, / or y for close program): ");
+                operation = input.next().charAt(0);
+                if (operation == '+' || operation == '-' || operation == '*' || operation == '/' || operation == 'y') {
+                    break;
                 }
             }
 
